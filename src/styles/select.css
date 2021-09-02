@@ -1,0 +1,32 @@
+.select-btn {
+  background-color: #ffffff;
+  color: #333333;
+  height: 2.825rem;
+  width: 13.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: 0.8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  text-align: center;
+  user-select: none;
+
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.05));
+  /* transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+  transition-duration: .15s;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  
+  animation: button-pop var(--animation-btn,.25s) ease-out;
+  --tw-bg-opacity: 1;
+  --tw-border-opacity: 1;
+  --tw-text-opacity: 1; */
+}
