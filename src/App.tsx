@@ -1,12 +1,12 @@
 import React from 'react';
-import { Select } from './components/Select';
+import { Sidebar } from './components/Sidebar';
+import { Result } from './components/Result';
 
 function App() {
-  let text = 'mega-sena';
-
   return (
     <div className="app">
-      <Select label={text}></Select>
+      <Sidebar />
+      <Result />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import '../styles/select.css';
+import '../styles/select.scss';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 interface SelectProps {
@@ -12,15 +12,15 @@ export function Select(props: SelectProps) {
         {props.label}
         <ArrowDropDownIcon />
       </div>
-      <ul tabIndex={0} className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="ml-1 p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
         <li>
-          <a href="#">Item 1</a>
+          <a href="/">Item 1</a>
         </li>
         <li>
-          <a href="#">Item 2</a>
+          <a href="/">Item 2</a>
         </li>
         <li>
-          <a href="#">Item 3</a>
+          <a href="/">Item 3</a>
         </li>
       </ul>
     </div>

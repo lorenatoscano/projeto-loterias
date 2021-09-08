@@ -1,0 +1,45 @@
+.sidebar {
+  // clip-path: path('M613 0C613 0 361.26 501.011 300 800H0V0H300Z');
+  // background-color: #6BEFA3;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5rem 0 5rem 5rem;
+  flex-grow: 1;
+
+  background-image: url('../assets/images/sidebar.svg');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: left center;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 1.875rem;
+      color: #ffffff;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-left: 1rem;
+    }
+  }
+
+  .contest {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+
+    span:first-child {
+      letter-spacing: 0.135rem;
+      font-size: 0.875rem;
+    }
+
+    span:last-child {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+  }
+}
