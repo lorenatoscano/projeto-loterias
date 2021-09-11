@@ -6,7 +6,7 @@ export function Sidebar() {
   let name = 'mega-sena';
 
   return (
-    <div className="sidebar">
+    <div className="sidebar" style={{ backgroundColor: '#6BEFA3' }}>
       <Select label={name} />
 
       <div className="logo">
