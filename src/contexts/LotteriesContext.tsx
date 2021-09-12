@@ -30,12 +30,12 @@ export const LotteriesContext = createContext({} as LotteriesContextData);
 export function LotteriesProvider({ children }: LotteriesProviderProps) {
   const [lotteries, setLotteries] = useState<LotteryOption[]>([]);
   const [currentLotteryDraw, setCurrentLotteryDraw] = useState<LotteryDraw>({
-    lotteryName: 'mega-sena',
+    lotteryName: '',
     lotteryId: 0,
-    contestId: '2359',
-    numbers: ['31', '32', '39', '42', '43', '51'],
-    date: '08/09/2021',
-    color: '#6BEFA3',
+    contestId: '',
+    numbers: [],
+    date: '',
+    color: '#EFEFEF',
   });
 
   const colors = [
@@ -47,20 +47,27 @@ export function LotteriesProvider({ children }: LotteriesProviderProps) {
     '#BFAF83'
   ];
 
+
   useEffect(() => {
-    api.get('/loterias')
-      .then(({ data }) => {
-        setLotteries(data.map((item: any) => {
-          return {
-            id: item.id,
-            name: item.nome,
-          }
-        }));
-      })
-      .catch((error) => {
-        console.log(error);
+    getLotteries()
+      .then(data => {
+        setLotteries(data);
       })
   }, []);
+
+  async function getLotteries() {
+    try {
+      const { data } = await api.get('/loterias');
+      return data.map((item: any) => {
+        return {
+          id: item.id,
+          name: item.nome,
+        }
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   async function getLotteryContest(lotteryId: number) {
     try {
@@ -82,9 +89,10 @@ export function LotteriesProvider({ children }: LotteriesProviderProps) {
   }
 
   async function handleSelection(lotteryId: number) {
+    const lotteries = await getLotteries();
     const contestId = await getLotteryContest(lotteryId);
     const contest = await getContest(contestId);
-    let name = lotteries[lotteryId]?.name;
+    const name = lotteries[lotteryId]?.name;
 
     setCurrentLotteryDraw({
       lotteryName: name ? name : '',
@@ -94,7 +102,6 @@ export function LotteriesProvider({ children }: LotteriesProviderProps) {
       date: formatDate(contest.data),
       color: colors[lotteryId],
     });
-
   }
 
   function formatDate(dateISO: string) {
