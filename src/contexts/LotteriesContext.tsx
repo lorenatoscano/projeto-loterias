@@ -27,7 +27,7 @@ interface LotteriesProviderProps {
 
 export const LotteriesContext = createContext({} as LotteriesContextData);
 
-export function LotteriesProvider({ children, ...rest }: LotteriesProviderProps) {
+export function LotteriesProvider({ children }: LotteriesProviderProps) {
   const [lotteries, setLotteries] = useState<LotteryOption[]>([]);
   const [currentLotteryDraw, setCurrentLotteryDraw] = useState<LotteryDraw>({
     lotteryName: 'mega-sena',
