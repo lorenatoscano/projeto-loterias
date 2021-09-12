@@ -2,7 +2,7 @@ import '../styles/select.scss';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 interface SelectProps {
-  label: string
+  label: string;
 }
 
 export function Select(props: SelectProps) {

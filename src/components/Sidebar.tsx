@@ -3,7 +3,7 @@ import logoImg from '../assets/images/logo.svg';
 import '../styles/sidebar.scss';
 
 export function Sidebar() {
-  let name = 'mega-sena';
+  const name = 'mega-sena';
 
   return (
     <div className="sidebar" style={{ backgroundColor: '#6BEFA3' }}>
