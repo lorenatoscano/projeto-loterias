@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+  display: flex;
+  background-color: #EFEFEF;
+  font-family: 'Montserrat', sans-serif;
+}
