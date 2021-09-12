@@ -1,13 +1,15 @@
-import '../styles/select.scss';
+import { Link } from 'react-router-dom';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { useContext } from 'react';
 import { LotteriesContext } from '../contexts/LotteriesContext';
+
+import '../styles/select.scss';
 interface SelectProps {
   label: string;
 }
 
 export function Select(props: SelectProps) {
-  const { lotteries, handleSelection } = useContext(LotteriesContext);
+  const { lotteries } = useContext(LotteriesContext);
 
   return (
     <div className="dropdown">
@@ -19,8 +21,8 @@ export function Select(props: SelectProps) {
         {lotteries?.map(lottery => {
           return (
             <li key={lottery.id}>
-              <button onClick={async () => { await handleSelection(lottery.id) }}>{lottery.name}</button>
-              {/* <a href={`/${lottery.id}`}>{lottery.name}</a> */}
+              {/* <button onClick={async () => { await handleSelection(lottery.id) }}>{lottery.name}</button> */}
+              <Link to={`/${lottery.id}`}>{lottery.name}</Link>
             </li>
           );
         })}
