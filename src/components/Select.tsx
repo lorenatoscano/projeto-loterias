@@ -21,7 +21,6 @@ export function Select(props: SelectProps) {
         {lotteries?.map(lottery => {
           return (
             <li key={lottery.id}>
-              {/* <button onClick={async () => { await handleSelection(lottery.id) }}>{lottery.name}</button> */}
               <Link to={`/${lottery.id}`}>{lottery.name}</Link>
             </li>
           );
