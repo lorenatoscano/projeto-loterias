@@ -13,7 +13,7 @@
 </p>
 
 ## About
-This is a React front-web project that shows lottery results, and it was developed for the "Javascript's Frameworks" subject of the Bachelolor of Information Technology degree program.
+This is a React front-web project that shows lottery results, and it was developed for the "Javascript's Frameworks" subject of the Bachelor of Information Technology degree program.
 
 The homework given required us to create an SPA (Single Page Application) that had different components communicating with each other (parent-child communication and/or data sharing), with different routes and using web services (e.g. REST API).
 
