@@ -1,4 +1,10 @@
 <p align="center">
+  <a href="https://github.com/lorenatoscano/projeto-loterias/blob/main/README-en.md">English</a>&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="https://github.com/lorenatoscano/projeto-loterias/blob/main/README.md">Português (Brasil)</a>
+</p>
+<hr>
+
+<p align="center">
   <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#tecnologias-utilizadas">Tecnologias utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#como-rodar">Como rodar?</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
