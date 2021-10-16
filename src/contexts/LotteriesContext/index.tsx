@@ -5,20 +5,14 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import api from "../services/api";
 
-interface LotteryOption {
-  name: string;
-  id: number;
-}
+import { colors, initialState } from "./constants";
+import { formatDate } from "./utils";
 
-interface LotteryDraw {
-  lotteryName: string;
-  lotteryId: number;
-  contestId: string;
-  numbers: Array<string>;
-  date: string;
-  color: string;
+import api from "../../services/api";
+
+interface LotteriesProviderProps {
+  children: ReactNode;
 }
 
 interface LotteriesContextData {
@@ -28,45 +22,13 @@ interface LotteriesContextData {
   handleLoterrySelection: (lotteryId?: number) => Promise<void>;
 }
 
-interface LotteriesProviderProps {
-  children: ReactNode;
-}
-
 export const LotteriesContext = createContext({} as LotteriesContextData);
-
-const colors = [
-  "#6BEFA3",
-  "#8666EF",
-  "#DD7AC6",
-  "#FFAB64",
-  "#5AAD7D",
-  "#BFAF83",
-];
-
-function addZero(number: number) {
-  return number <= 9 ? "0" + number : number;
-}
-
-function formatDate(dateISO: string) {
-  let dateObject = new Date(dateISO);
-  let day = addZero(dateObject.getDate());
-  let month = addZero(dateObject.getMonth() + 1);
-  let year = dateObject.getFullYear();
-  return `${day}/${month}/${year}`;
-}
 
 export function LotteriesProvider({ children }: LotteriesProviderProps) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [lotteries, setLotteries] = useState<LotteryOption[]>([]);
-
-  const [currentLotteryDraw, setCurrentLotteryDraw] = useState<LotteryDraw>({
-    lotteryName: "",
-    lotteryId: 0,
-    contestId: "",
-    numbers: [],
-    date: "",
-    color: "#EFEFEF",
-  });
+  const [currentLotteryDraw, setCurrentLotteryDraw] =
+    useState<LotteryDraw>(initialState);
 
   const setIsLoadingDebounced = () => {
     setTimeout(() => {
