@@ -1,6 +1,6 @@
 .dropdown {
   color: #333333;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
   .select-btn {
@@ -19,12 +19,22 @@
     flex-shrink: 0;
     text-align: center;
     user-select: none;
-  
+
     filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.05));
   }
-  
-  a {
+
+  .select-option-button {
+    padding: 0.75rem 1.25rem;
+
+    color: #404040;
+    font-weight: 500;
+    text-align: left;
     text-transform: uppercase;
+
+    cursor: pointer;
+  }
+
+  .select-option-button:hover {
+    background-color: rgba(165, 165, 165, 0.329);
   }
 }
-

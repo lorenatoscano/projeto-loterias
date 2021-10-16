@@ -1,24 +1,22 @@
-import { useContext, useEffect } from "react";
-import { useParams } from "react-router";
+import { Fragment, useContext } from "react";
 import { LotteriesContext } from "../contexts/LotteriesContext";
+import { Loading } from "./Loading";
 import { Result } from "./Result";
 import { Sidebar } from "./Sidebar";
 
 export function Main() {
-  const { handleSelection } = useContext(LotteriesContext);
-  let { id } = useParams<{ id: string }>();
-
-  useEffect(() => {
-    (async () => {
-      await handleSelection(Number(id));
-    })()
-    // eslint-disable-next-line
-  }, [id]);
+  const { isLoading } = useContext(LotteriesContext);
 
   return (
     <div className="app">
-      <Sidebar />
-      <Result />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Fragment>
+          <Sidebar />
+          <Result />
+        </Fragment>
+      )}
     </div>
   );
 }
