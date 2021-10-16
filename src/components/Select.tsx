@@ -1,5 +1,6 @@
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { useContext } from "react";
+import { useHistory } from "react-router";
 import { LotteriesContext } from "../contexts/LotteriesContext";
 
 import "../styles/select.scss";
@@ -8,7 +9,12 @@ interface SelectProps {
 }
 
 export function Select(props: SelectProps) {
-  const { lotteries, handleLoterrySelection } = useContext(LotteriesContext);
+  const { lotteries } = useContext(LotteriesContext);
+  const history = useHistory();
+
+  const goToLotterySelected = (lotteryId: number) => {
+    history.push(`/${lotteryId}`);
+  };
 
   return (
     <div className="dropdown">
@@ -27,7 +33,7 @@ export function Select(props: SelectProps) {
                 title="Opção de loteria"
                 aria-label={lottery.name}
                 className="select-option-button"
-                onClick={() => handleLoterrySelection(lottery.id)}
+                onClick={() => goToLotterySelected(lottery.id)}
               >
                 {lottery.name}
               </button>

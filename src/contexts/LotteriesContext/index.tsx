@@ -19,7 +19,7 @@ interface LotteriesContextData {
   lotteries: Array<LotteryOption>;
   currentLotteryDraw: LotteryDraw;
   isLoading: boolean;
-  handleLoterrySelection: (lotteryId?: number) => Promise<void>;
+  handleLoterrySelection: (lotteryId: number) => Promise<void>;
 }
 
 export const LotteriesContext = createContext({} as LotteriesContextData);
@@ -71,7 +71,7 @@ export function LotteriesProvider({ children }: LotteriesProviderProps) {
     }
   }
 
-  const handleLoterrySelection = useCallback(async (lotteryId = 0) => {
+  const handleLoterrySelection = useCallback(async (lotteryId: number) => {
     setIsLoading(true);
 
     const lotteries = await getLotteries();
@@ -96,14 +96,6 @@ export function LotteriesProvider({ children }: LotteriesProviderProps) {
       setLotteries(data);
     });
   }, []);
-
-  useEffect(() => {
-    const handleInitialPageSelection = async () => {
-      await handleLoterrySelection();
-    };
-
-    handleInitialPageSelection();
-  }, [handleLoterrySelection]);
 
   return (
     <LotteriesContext.Provider
